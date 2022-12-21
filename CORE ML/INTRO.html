@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meata charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- search bar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css">
+	<style type="text/css">
+		/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+h2{
+    font-size: 21px;
+}
+h3{
+	font-size: 14px;
+}
+
+p {
+   font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background-color:#000;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #777;
+    margin: 40px 0;
+}
+/*----------------search bar-------------------------*/
+input {
+  border: 1px solid #ccc;
+  font-size: 12px;
+  height: 30px;
+  padding: 4px 8px;
+  position: absolute;
+  width: 50%;
+}
+input:focus {
+  outline: none;
+}
+
+button {
+  text-align: center;
+}
+button:focus {
+  outline: none;
+}
+button.btn-search, button.btn-reset {
+  background: hotpink;
+  border: none;
+  height: 30px;
+  font-size: 12px;
+  padding: 4px;
+  position: absolute;
+  width: 30px;
+}
+
+.sample {
+  float: left;
+  height: 50px;
+  margin: 0 8%;
+  position: relative;
+  width: 34%;
+}
+ .sample.twelve input {
+  border-radius: 15px;
+  transition: all .6s ease-in-out;
+  width: 120px;
+}
+ .sample.twelve input:focus {
+  width: 200px;
+}
+.sample.twelve input:focus ~ button.btn-search {
+  animation: jumpTowardSearch 1.2s linear;
+  background: hotpink;
+  color: #fff;
+  left: 172px;
+}
+.sample.twelve input:focus ~ button.btn-reset {
+  animation: jumpTowardReset 1.2s linear .4s;
+  left: 202px;
+}
+ .sample.twelve button {
+  transition: all .6s ease-in-out;
+}
+ .sample.twelve button.btn-search {
+  background: #ccc;
+  border-radius: 50%;
+  height: 26px;
+  left: 92px;
+  top: 2px;
+  width: 26px;
+}
+ .sample.twelve button.btn-reset {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 10px;
+  height: 10px;
+  left: 92px;
+  line-height: 20px;
+  padding: 0;
+  top: 5px;
+  width: 5px;
+  z-index: -1;
+}
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: white;
+    color:black;
+    transition: all 0.3s;
+    font-size: 12px;
+     box-shadow: 8px 10px #f2f2f2;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: white;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+    margin-top: -35px;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: white;
+    background:	#4285F4;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background:#4285F4 ;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: white;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 80%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: #262626;
+  color: white;
+  font-size: 15px;;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.dark {
+  color: #fff;
+}
+
+.dark .btn {
+  background: #f4f4f4;
+  color: #333;
+}
+/* Showcase */
+.showcase {
+  width: 100%;
+  height: 500px;
+  background: url('image/intro1.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-end;
+  padding-bottom: 50px ;
+  margin-bottom: 20px;
+
+}
+
+.showcase h2, .showcase p {
+  margin-bottom: 10px;
+}
+
+.showcase .btn {
+  margin-top: 20px;
+}
+
+/* Follow */
+.follow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 30px 0 30px;
+}
+
+.follow * {
+  margin-right: 10px;
+}
+
+
+/* Links */
+.links {
+  background: #f2f2f2;
+  color: #616161;
+  font-size: 12px;
+  padding: 35px 0;
+}
+
+.links-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 0px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 17px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.links li {
+  line-height: 2.8;
+}
+
+/* Footer */
+.footer {
+  background: #f2f2f2;
+  color: #616161;
+  font-size: 12px;
+  padding: 20px 0;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer div {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+}
+
+.footer div i {
+  margin-right: 10px;
+}
+
+.footer ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer li {
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+@media(max-width: 700px) {
+	  .links .links-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(max-width: 500px) {
+
+  .links .links-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .links .links-inner ul {
+    margin-bottom: 20px;
+  }
+}
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.table,th,td{
+width:200px;
+margin:auto;
+font-size:15px;
+padding: 10px;
+text-align: center;
+border: 2px solid black;
+box-sizing: border-box;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+    margin-left: 95px;
+    height: 250px;
+}
+
+	</style>
+</head>
+<body>
+<div class="wrapper">
+<!--*************************** Sidebar  --*****************************************************----->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Core ML</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+              
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">KT-ARDK</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li style="font-weight: bold;">
+                          <br>
+                            <a href="">KT-ARDK INTRO</a>
+                        </li>
+                        <li>
+                            <a href="nav1.html">LED- BLINKING :</a>
+                        </li>
+                        <li>
+                            <a href="nav2.html">LCD- INTERFACING:</a>
+                        </li>
+                        <li>
+                            <a href="nav4.html">4*4 KEYBOARD INTERFACE:</a>
+                        </li>
+                        <li>
+                            <a href="nav3.html">RGB INTERFACE:</a>
+                        </li>
+                        <li>
+                            <a href="nav5.html">BUZZER:</a>
+                        </li>
+                        <li>
+                            <a href="nav6.html">RELAY:</a>
+                        </li>
+                        <li>
+                            <a href="nav7.html">SERVO MOTOR INTERFACE:</a>
+                        </li>
+                        <li>
+                            <a href="nav8.html">STEPPER MOTOR INTERFACE:</a>
+                        </li>
+                        <li>
+                            <a href="nav9.html">7 SEGMENT DISPLAY:</a>
+                        </li>
+                        <li>
+                            <a href="nav10.html">ANALOG INTERFACE:</a>
+                        </li>
+                        <li>
+                            <a href="nav11.html">IR REMOTE INTERFACE:</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                  <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> KT-IOT KIT</a>
+                  <ul class="collapse list-unstyled" id="homeSubmenu1">
+                    <br>
+                  
+                    
+                      <li>
+                          <a href="esp8266 led.html"> ESP-8266 LED BLINK</a>
+                      </li>
+                      <li>
+                        <a href="esp8266 analog.html"> ESP-8266 ANALOG INTERFACE</a>
+                    </li>
+                      <li>
+                          <a href="esp8266 lcd.html">ESP-8266 LCD</a>
+                      </li>
+                      <li>
+                        <a href="esp8266 wifi.html"> ESP-8266 WIFI SCAN</a>
+                    </li>
+                    <li>
+                      <a href="esp8266.html"> ESP-8266 IOT Web Server</a>
+                  </li>
+                  <li>
+                    <a href="esp8266 tem.html"> ESP-8266 TEMP WEB SERVER</a>
+                </li>
+                  <li>
+                    <a href="ESP8266 SLIDER.html">ESP-8266 WEB SLIDER</a>
+                </li>
+                <li>
+                  <a href="esp8266 ir remote.html"> ESP-8266 IR REMOTE</a>
+              </li>
+              <li>
+                <a href="esp8266 mqtt.html"> ESP-8266 MQTT SERVER</a>
+            </li>
+            <li>
+              <a href="esp8266 wifi now.html"> ESP-8266 WIFI NOW</a>
+          </li>
+                  </ul>
+              </li>
+              
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">KT-ESPKIT</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <br>
+                  <li>
+                    <a href="ESP32.html">KT-ESP32</a>
+                </li>
+                    <li>
+                        <a href="esp web.html">WEB  SOCKET SERVER</a>
+                    </li>
+                    <li>
+                        <a href="esp smtp.html">SMTP- MAIL</a>
+                    </li>
+                    <li>
+                      <a href="esp mesh.html">MESH Network</a>
+                  </li>
+                  <li>
+                    <a href="esp smtp attachment.html">SMTP- ATTACHMENT</a>
+                </li>
+                <li>
+                  <a href="esp32 http post.html">HTTP-POST DATA(Thinkspeak)</a>
+              </li>
+              <li>
+                <a href="esp ifttt.html">HTTP-POST (IFTTT)</a>
+            </li>
+            <li>
+              <a href="ESP32 SLIDER.html">WEB SERVER WITH SLIDER</a>
+          </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#">Model customization</a>
+            </li>
+                <li>
+                    <a href="#">ML features</a>
+                </li>
+            </ul>
+
+            <!-- -----------search bar============= -->
+
+           <div class="sample twelve">
+  <input type="text" name="search" placeholder="search">
+  <button type="submit" class="btn btn-search">
+    <i class="fa fa-search"></i>
+  </button>
+ 
+</div> 
+        </nav>
+<!--*************************** Sidebar  --*****************************************************---->        
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                       
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Core ML.html">Home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Discover</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Design</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Develop</a>
+                            </li>
+                             <li class="nav-item active">
+                                <a class="nav-link" href="#">Support</a>
+                            </li>
+                            <li class="nav-item active">
+                                <div class="dropdown nav-link">
+                               	<span>Language</span>
+  								<div class="dropdown-content">
+  								<p><a href=""> C++</a></p>
+  								<p>java</p>
+  								</div>
+								</div>
+  
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--******************************************Showcase**************************** -->
+    <header class="showcase">
+      <h2 style="color:white;">KT-ARDK-040615</h2>
+      <p style="color: white;">
+       Integrate machine learning models into your app.
+      </p>
+      <a href="#" class="btn">
+        Learn More <i class="fas fa-chevron-right"></i>
+      </a>
+    </header>
+
+
+            <div class="line"></div>
+        <!--******************************************Showcase**************************** -->     
+        <h2>Introduction :</h2>
+        <br>
+       
+        <p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+            The KT-ARDK is an ALL-IN-ONE DEVELOPMENT KIT. It is the perfect kit to get familiar with electronics as well as coding. This versatile microcontroller is equipped with the ATmega328 Controller. This kit will give you a great experience.
+
+          </p>
+        <br>
+        
+        <h2>KT-ARDK Kit contains,:</h2>
+        <br>
+        <p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+                1. Power Supply<br>
+                2. ATMEGA UC session & shield interface<br>
+                3. USB programmer<br>
+                4. UART<br>
+                5. I2C RTC & EXT RTC<br>
+                6. SPI – Serial Peripheral Interface<br>
+                7. Analog interface<br>
+                8. 7 Segment display with shift register<br>
+                9. Expansion ports<br>
+               10. RGB LED interface<br>
+               11. LCD interfacing<br>
+               12. 4*4 Keyboard interface<br>
+               13. Relay, Buzzer and Servo motor interface<br>
+               14. Motor interfaces (DC Motor & Stepper Motor)<br>
+               15. IR remote interface<br>
+<br>
+        </p>
+
+        <h2>Power Supply :</h2>
+       <br>
+       <p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+        This block consists of L7805CV, switch, external port, LED, resistors and capacitors. L7805CV is a three terminal linear voltage regulator IC with a fixed output voltage of 5V which is useful in a wide range of applications. If the entire PCB board gets power on, that LED starts glowing.
+</p>
+<br>
+        <h2>ATMEGA UC session & Shield Interface :</h2>
+        <br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists ATmega328 microcontroller, quartz crystal oscillators, power pins, analog pins, digital (PWM) pins. In KT-ARDK-040515 kit we use <b>ATmega328</b> microcontroller. This microcontroller is a single chip created by Atmel in the megaAVR family (AVR stands for Alf and Vegard's RISC processor, AVR generally refers to the 8-bit RISC line of Atmel AVR microcontrollers). It has a modified Harvard architecture 8-bit RISC processor core. Due to RISC architecture, an AVR microcontroller can execute 1 million instructions per second if the cycle frequency is 1 MHz provided by a crystal oscillator.
+    
+</p><br>
+<h2>PIN Diagram :</h2>
+<br>
+<br>
+<img src="image/intro fig1.png" alt="">
+<br>
+<br>
+<img src="image/intro fig2.png" alt="">
+<br>
+<h2>PIN Description :</h2>  
+<br>
+<table >
+    <tr>
+        <th>S.No :</th>
+        <th>Pin Number</th>
+        <th>Description</th>
+        <th> Function</th>
+    </tr>
+    <tr>
+        <td>1.</td>
+        <td>Reset</td>
+        <td>PC6</td>
+        <td> Reset</td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>0</td>
+        <td>PD0</td>
+        <td>Digital Pin (RX)</td>
+    </tr>
+    <tr>
+        <td>3.</td>
+        <td>1</td>
+        <td>PD1</td>
+        <td>Digital Pin (TX)</td>
+    </tr>
+    <tr>
+        <td>4.</td>
+        <td>2</td>
+        <td>PD2</td>
+        <td>Digital Pin</td>
+    </tr>
+    <tr>
+        <td>5.</td>
+        <td>3</td>
+        <td>PD3</td>
+        <td>Digital Pin  (PWM)</td>
+    </tr>
+    <tr>
+        <td>6.</td>
+        <td>4</td>
+        <td>PD4</td>
+        <td>Digital Pin </td>
+    </tr>
+    <tr>
+        <td>7.</td>
+        <td>Vin</td>
+        <td>Vcc</td>
+        <td>Positive Voltage (Power)</td>
+    </tr>
+    <tr>
+        <td>8.</td>
+        <td>GND</td>
+        <td>GND</td>
+        <td>Ground</td>
+    </tr>
+    <tr>
+        <td>9.</td>
+        <td>5V</td>
+        <td>XTAL 1</td>
+        <td>Crystal Oscillator</td>
+    </tr>
+    <tr>
+        <td>10.</td>
+        <td>3.3V</td>
+        <td>XTAL 2</td>
+        <td>Crystal Oscillator</td>
+    </tr>
+    <tr>
+        <td>11.</td>
+        <td>5</td>
+        <td>PD5</td>
+        <td>Digital Pin (PWM)</td>
+    </tr>
+    <tr>
+        <td>12.</td>
+        <td>6</td>
+        <td>PD6</td>
+        <td>Digital Pin (PWM)</td>
+    </tr>
+    <tr>
+        <td>13.</td>
+        <td>7</td>
+        <td>PD7</td>
+        <td>Digital Pin</td>
+    </tr>
+    <tr>
+        <td>14.</td>
+        <td>8</td>
+        <td>PB0</td>
+        <td>Digital Pin</td>
+    </tr>
+    <tr>
+        <td>15.</td>
+        <td>9</td>
+        <td>PB1</td>
+        <td>Digital Pin (PWM)</td>
+    </tr>
+    <tr>
+        <td>16.</td>
+        <td>10</td>
+        <td>PB2</td>
+        <td>Digital Pin (PWM)</td>
+    </tr>
+    <tr>
+        <td>17.</td>
+        <td>11</td>
+        <td>PB3</td>
+        <td>Digital Pin (PWM)</td>
+    </tr>
+    <tr>
+        <td>18.</td>
+        <td>12</td>
+        <td>PB4</td>
+        <td>Digital Pin</td>
+    </tr>
+    <tr>
+        <td>19.</td>
+        <td>13</td>
+        <td>PB5</td>
+        <td>Digital Pin</td>
+    </tr>
+    <tr>
+        <td>20.</td>
+        <td>AVCC</td>
+        <td>AVCC</td>
+        <td>Positive voltage for ADC (power)</td>
+    </tr>
+    <tr>
+        <td>21.</td>
+        <td>AREF</td>
+        <td>AREF</td>
+        <td>Reference Voltage</td>
+    </tr>
+    <tr>
+        <td>22.</td>
+        <td>GND</td>
+        <td>GND</td>
+        <td>Ground</td>
+    </tr>
+    <tr>
+        <td>23.</td>
+        <td>A0</td>
+        <td>PC0</td>
+        <td>Analog Input</td>
+    </tr>
+    <tr>
+        <td>24.</td>
+        <td>A1</td>
+        <td>PC1</td>
+        <td>Analog Input</td>
+    </tr>
+    <tr>
+        <td>25.</td>
+        <td>A2</td>
+        <td>PC2</td>
+        <td>Analog Input</td>
+    </tr>
+    <tr>
+        <td>26.</td>
+        <td>A3</td>
+        <td>PC3</td>
+        <td>Analog Input</td>
+    </tr>
+    <tr>
+        <td>27.</td>
+        <td>A4</td>
+        <td>PC4</td>
+        <td>Analog Input</td>
+    </tr>
+    <tr>
+        <td>28.</td>
+        <td>A5</td>
+        <td>PC5</td>
+        <td>Analog Input</td>
+    </tr>
+</table>
+<br>
+<br>
+<div class="line" style="height: 1px;"></div>
+<h2>Pin Functions - ATmega328 Microcontroller :</h2>
+       <br>
+       <p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+        ★  20 of the pins function as I/O ports. This means they can function as an input to the circuit or as output. Whether they are input or output is set in the software. <br>
+        ★  14 of the pins are digital pins, of which 6 can function to give PWM output. 6 of the pins are for analog input/output.<br>
+        ★  2 of the pins are for the crystal oscillator. This is to provide a clock pulse for the ATmega chip.<br> 
+        ★  A clock pulse is needed for synchronization so that communication can occur in synchrony between the ATmega chip and a device. The chip needs power so 2 of the pins, Vcc and GND, provide it power so that it can operate. The ATmega328 is a low-power chip, so it only needs between 1.8-5.5V of power to operate.<br>
+        ★  The ATmega328 chip has an analog-to-digital converter (ADC) inside of it. This must be or else the ATmega328 wouldn't be capable of interpreting analog signals. Because there is an ADC, the chip can interpret analog input, which is why the chip has 6 pins for analog input. <br>
+        ★  The ADC has 3 pins set aside for it to function, AVCC, AREF, and GND. AVCC is the power supply, positive voltage, that for the ADC. The ADC needs its own power supply in order to work. GND is the power supply ground. AREF is the reference voltage that the ADC uses to convert an analog signal to its corresponding digital value.<br> 
+        ★  Analog voltages higher than the reference voltage will be assigned to a digital value of 1, while analog voltages below the reference voltage will be assigned the digital value of 0.<br>
+        ★  Since the ADC for the ATmega328 is a 10-bit ADC, meaning it produces a 10-bit digital value, it converts an analog signal to its digital value, with the AREF value being a reference for which digital values are high or low.<br> 
+        ★  The last pin is the RESET pin. This allows a program to be rerun and start over. And this sums up the pinout of an ATmega328 chip.<br>
+        
+</p>
+<br><br>
+<h2>Peripherals :</h2>
+       <br>
+       <p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+        ★  8-bit Timer/Counters – 2<br>
+        ★  16-bit Timer/Counter – 1<br>
+        ★  PWM Channels – 6<br>
+        ★  Master/Slave SPI serial interface – 2<br> 
+        ★  Programmable Serial UART – 1 <br>
+        ★  Two-wire Serial Interface (Philips I2C compatible) -1 <br>
+        ★  On-chip Analog Comparator – 1.<br>
+        
+</p>
+<br>
+<br>
+<h2>Features :</h2>
+<br>
+<table >
+    <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+        </tr>
+        <tr>
+            <td>CPU type</td>
+            <td>8-bit AVR</td>
+        </tr>
+        <tr>
+            <td>Maximum CPU speed</td>
+            <td>20 MHz</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>20 MIPS at 20 MHz</td>
+        </tr>
+        <tr>
+            <td>Flash memory</td>
+            <td>32 KB</td>
+        </tr>
+        <tr>
+            <td>SRAM</td>
+            <td>2 KB</td>
+        </tr>
+        <tr>
+            <td>EEPROM</td>
+            <td>1 KB</td>
+        </tr>
+        <tr>
+            <td>No.of Pins</td>
+            <td>28 </td>
+        </tr>
+        <tr>
+            <td>No.of I/O Pins</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>USB interface</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Supply Voltage Min</td>
+            <td>1.8V</td>
+        </tr>
+        <tr>
+            <td>Supply Voltage Max</td>
+            <td>5.5V</td>
+        </tr>
+        <tr>
+            <td>Operating Temperature Min</td>
+            <td>-40°C</td>
+        </tr>
+        <tr>
+            <td>Operating Temperature Max</td>
+            <td>85°C</td>
+        </tr>
+</table>
+<br>
+<br>
+<div class="line" style="height: 1px;"></div>
+<br>
+
+<h2>USB Programmer :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of FTDI IC, external USB port, LEDs, resistors and capacitors. FTDI chip’s integrated circuit development is guided by a simple principle, making design easy. This translates into taking into account not just the chip design, but also system integration and software needs, value-added features and design support. If data transfer happens those LEDs start glowing.
+</p>
+<br>
+<br>
+
+<h2>UART :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of LEDs, resistors and 4 input pins and 2 output pins. Those 4 input pins are VCC, ground, TX(transmitter) and RX (receiver). 2 output pins are TX (transmitter) and RX (receiver). If data transfer happens those LEDs start glowing.
+
+</p>
+<br>
+<br>
+
+<h2>I2C RTC & EXT RTC :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of an IN1307N IC, battery, capacitor, 2 resistors, 4 input pins and 2 output pins. Those 4 input pins are VCC, ground, SCL (Serial Clock Pin) and SDA (Serial Data Pin). 2 output pins are SCL (Serial Clock Pin) and SDA (Serial Data Pin). IN1307N is a CMOS IC of real time watch with serial interface.
+</p>
+<br>
+<br>
+
+<h2>SPI – Serial Peripheral Interface :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    The Serial Peripheral Interface (SPI) is a synchronous serial communication interface specification used for short-distance communication. This block consists of 4 input pins. Those 4 input pins are SS (Slave Select), MISO (Master In Slave Out), MOSI (Master Out Slave In), SCK (Slave Clock).
+
+<br>
+<br>
+<h2>Analog Interface :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    An analog interface is point-to-point. This block consists of LM35 (Temperature Sensor), potentiometer (POT), external ADC pins. Potentiometer used for adjustment, calibration and tuning purpose in circuits. This block has switch ports to connect anyone of the above mentioned analog interface.
+<br>
+<br>
+<h2>7 Segment Display with shift register :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of 4 BC547B transistors acting as switch between all four 7 segment display quick switching and pulse-width modulation (PWM). S74C164N shift register, input pins and output pins. S74C164N shift register to count from 0 to F (HEX) on a 7 segment common anode LED display.  A 7-segment LED display is simply a group of light emitting diodes arranged in the pattern of an eight (plus decimal point) that will display numbers when the appropriate are turned on.
+
+<br>
+<br>
+<h2>Expansion Ports :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of 28 pins divided into power pins, analog pins and digital pins.
+
+<br>
+<br>
+<h2>RGB LED Interface :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of 9 common anode RGB LED slots. Every RGB LED has 3 R G B inputs.
+
+<br>
+<br>
+<h2>LCD Interfacing :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of an LCD display, Potentiometer, BC547B transistor, input pins and output pins. It supports 4 data lines and 8 data line
+<br>
+<br>
+<h2>4*4 Keyboard Interface :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists matrix keyboard 4*4, 5 additional switches and input ports.
+
+<br>
+<br>
+<h2>Relay, Buzzer and Servo Motor Interface :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of a relay pin, buzzer pin, servo pins, buzzer, relay and servo motor port. It has on board led which indicates relay switching.
+<br>
+<br>
+<h2>Motor Interfaces (DC Motor & Stepper Motor) :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of L293DNE motor driver IC, dc motor port, stepper motor port, unipolar and bipolar motor ports.
+
+<br>
+<br>
+<h2>IR Remote Interface :</h2>
+<br>
+<p style="font-size:14px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; font-weight:500;justify-content: center;">
+    This block consists of external IR sensor ports and internal IR sensor ports. It can be switched using the jumper section.
+<br>
+
+            <div class="line"></div>
+
+        </div>
+    </div>
+
+    <!-- Links -->
+      <section class="links">
+        <div class="links-inner">
+          <ul>
+            <li><h3>What's New</h3></li>
+            <li><a href="#">Surface Pro X</a></li>
+            <li><a href="#">Surface Laptop 3</a></li>
+            <li><a href="#">Surface Pro 7</a></li>
+            <li><a href="#">Windows 10 apps</a></li>
+            <li><a href="#">Office apps</a></li>
+          </ul>
+          <ul>
+            <li><h3>Microsoft Store</h3></li>
+            <li><a href="#">Account Profile</a></li>
+            <li><a href="#">Download Center</a></li>
+            <li><a href="#">Microsoft Store support</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Older tracking</a></li>
+          </ul>
+          <ul>
+            <li><h3>Education</h3></li>
+            <li><a href="#">Microsfot in education</a></li>
+            <li><a href="#">Office for students</a></li>
+            <li><a href="#">Office 365 for schools</a></li>
+            <li><a href="#">Deals for studentss</a></li>
+            <li><a href="#">Microsfot Azure</a></li>
+          </ul>
+          <ul>
+            <li><h3>Enterprise</h3></li>
+            <li><a href="#">Azure</a></li>
+            <li><a href="#">AppSource</a></li>
+            <li><a href="#">Automotive</a></li>
+            <li><a href="#">Government</a></li>
+            <li><a href="#">Healthcare</a></li>
+          </ul>
+          <ul>
+            <li><h3>Developer</h3></li>
+            <li><a href="#">Visual Studio</a></li>
+            <li><a href="#">Windowszs Dev Center</a></li>
+            <li><a href="#">Developer Network</a></li>
+            <li><a href="#">TechNet</a></li>
+            <li><a href="#">Microsoft Developer</a></li>
+          </ul>
+          <ul>
+            <li><h3>Company</h3></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">About Microsoft</a></li>
+            <li><a href="#">Company news</a></li>
+            <li><a href="#">Privacy at Microsoft</a></li>
+            <li><a href="#">Inverstors</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-inner">
+          <div><i class="fas fa-globe fa-2x"></i> English (United States)</div>
+          <ul>
+            <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Contact Microsoft</a></li>
+                    <li><a href="#">Privacy & cookies</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                    <li><a href="#">Trademarks</a></li>
+                    <li><a href="#">Safety & eco</a></li>
+                    <li><a href="#">About our ads</a></li>
+                   
+          </ul>
+        </div>
+      </footer>
+  
+    <script type="text/javascript">
+    	$(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
